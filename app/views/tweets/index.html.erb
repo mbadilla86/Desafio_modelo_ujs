@@ -2,6 +2,8 @@
 
 <h1>Tweets</h1>
 
+<%= render 'form', tweet: @tweet  %>
+
 <table>
   <thead>
     <tr>
@@ -13,13 +15,7 @@
 
   <tbody>
     <% @tweets.each do |tweet| %>
-      <tr>
-        <td><%= tweet.post %></td>
-        <td><%= tweet.ujs %></td>
-        <td><%= link_to 'Show', tweet %></td>
-        <td><%= link_to 'Edit', edit_tweet_path(tweet) %></td>
-        <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <%= render 'tweet', tweet: tweet %>
     <% end %>
   </tbody>
 </table>
@@ -27,3 +23,5 @@
 <br>
 
 <%= link_to 'New Tweet', new_tweet_path %>
+
+<div id="my-post"></div>
